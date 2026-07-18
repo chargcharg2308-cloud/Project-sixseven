@@ -6,7 +6,7 @@
 def equip_item(person, weapon):
     current_money = person["money"]
     weapon_owned = person["equipment"]
-    purchase = False
+    messenger = ""
     while True:
         if weapon_owned == "ไม่มี":
             if current_money < 10000:
