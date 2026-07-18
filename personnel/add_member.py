@@ -9,17 +9,16 @@ def add_member(name, age, power, money):
 #   - สร้าง dict สมาชิกใหม่ (key: name, age, role, power, money, equipment เริ่มต้น "ไม่มี")
 #   - เพิ่มเข้า family_members แล้ว return dict นั้น
     # TODO: เขียนโค้ดตรงนี้
-    name = input("Enter name : ")
-    age = int(input("Enter age : "))
-    power = int(input("Enter ur power : "))
-    money = int(input("Enter ur money : "))
+    # name = input("Enter name : ")
+    # age = int(input("Enter age : "))
+    # power = int(input("Enter ur power : "))
+    # money = int(input("Enter ur money : "))
     role = "slave"
     if power >= 8:
         role = "Hitman"
     elif money >= 1000000:
         role = "Sponsor"
     pass
-
 
     new_member = {
         "name" :  name,

@@ -12,12 +12,13 @@ def remove_member(target_name):
     for person_dict in family_members:
         if person_dict["name"] == target_name:
             family_members.remove(person_dict)
-            return True
-    return False
+            if True:
+                print("สั่งเก็บเรียบร้อย")        
+    return "ไม่พบชื่อในระบบ"
 
 
 # ทดสอบเฉพาะไฟล์ตัวเอง: พิมพ์  python -m personnel.remove_member
-# if __name__ == "__main__":
-#     print(remove_member("Luigi"))   # ครั้งแรกต้องได้ True
-#     print(remove_member("Luigi"))   # ครั้งที่สองต้องได้ False (ลบไปแล้ว)
-#     print(family_members)           # ต้องเหลือแค่ Tony
+if __name__ == "__main__":
+    print(remove_member("Luigi"))   # ครั้งแรกต้องได้ True
+    print(remove_member("Luigi"))   # ครั้งที่สองต้องได้ False (ลบไปแล้ว)
+    print(family_members)           # ต้องเหลือแค่ Tony
