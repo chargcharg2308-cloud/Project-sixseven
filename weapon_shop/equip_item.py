@@ -4,7 +4,6 @@
 # =====================================================
 
 def equip_item(person, weapon):
-    x = 1
     current_money = person["money"]
     weapon_owned = person["equipment"]
     while True:
@@ -15,20 +14,41 @@ def equip_item(person, weapon):
             if current_money >=10000 and current_money < 50000:
                 print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
                 current_money -= 10000
+                person["power"] += 2
+                power_outcome = person["power"]
                 person["money"] = current_money
-                print(f"การซื้อสำเร็จ\nยอดคงเหลืิอของคุณ คือ {person["money"]}")
-            if current_money <= 150000:
-                while x == 1:
-                    choose_weapon = (input(f"\nคุณต้องการอาวุธชิ้นไหนจากตัวเลือกต่อไปนี้\n1 สนับมือ\n2 ปืนพก 9mm\nอาวุธที่คุณเลือกคือ: "))
+                money_outcome = person["money"]
+                person["equipment"] = "มี"
+                print(f"การซื้อสำเร็จ!")
+                print(f"ยอดคงเหลือของคุณ {money_outcome} บาท")
+                print(f"ค่าพลังของคุณในตอนนี้ คือ {power_outcome}")
+                print(f"ยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว")
+                while True:
+                    choose_weapon = int((input(f"\nคุณต้องการอาวุธชิ้นไหนจากตัวเลือกต่อไปนี้\n1 สนับมือ\n2 ปืนพก 9mm\nอาวุธที่คุณเลือกคือ: ")))
                     if choose_weapon == 1:
                         print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
                         current_money -= 10000
+                        person["power"] += 2
+                        power_outcome = person["power"]
                         person["money"] = current_money
-                        print(f"การซื้อสำเร็จ\nยอดคงเหลืิอของคุณ คือ {person["money"]}")
-                        x = 0
+                        money_outcome = person["money"]
+                        person["equipment"] = "มี"
+                        print(f"การซื้อสำเร็จ!")
+                        print(f"ยอดคงเหลือของคุณ {money_outcome} บาท")
+                        print(f"ค่าพลังของคุณในตอนนี้ คือ {power_outcome}")
+                        print(f"ยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว")
                     elif choose_weapon == 2:
-                        pass
-                        continue
+                        print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
+                        current_money -= 50000
+                        person["power"] += 5
+                        power_outcome = person["power"]
+                        person["money"] = current_money
+                        money_outcome = person["money"]
+                        person["equipment"] = "มี"
+                        print(f"การซื้อสำเร็จ!")
+                        print(f"ยอดคงเหลือของคุณ {money_outcome} บาท")
+                        print(f"ค่าพลังของคุณในตอนนี้ คือ {power_outcome}")
+                        print(f"ยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว")
                     else:
                         print("กรุณาเลือกตัวเลือกจากรายการก่อนหน้า")
                         print(f"\n-----------")
@@ -36,14 +56,41 @@ def equip_item(person, weapon):
                 while True:
                     choose_weapon = (input(f"\nคุณต้องการอาวุธชิ้นไหนจากตัวเลือกต่อไปนี้\n1 สนับมือ\n2 ปืนพก 9mm\n3 ปืนกล Thompson\nอาวุธที่คุณเลือกคือ: "))
                     if choose_weapon == 1:
-                        pass
-                        continue
+                        print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
+                        current_money -= 10000
+                        person["power"] += 2
+                        power_outcome = person["power"]
+                        person["money"] = current_money
+                        money_outcome = person["money"]
+                        person["equipment"] = "มี"
+                        print(f"การซื้อสำเร็จ!")
+                        print(f"ยอดคงเหลือของคุณ {money_outcome} บาท")
+                        print(f"ค่าพลังของคุณในตอนนี้ คือ {power_outcome}")
+                        print(f"ยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว")
                     elif choose_weapon == 2:
-                        pass
-                        continue
+                        print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
+                        current_money -= 50000
+                        person["power"] += 5
+                        power_outcome = person["power"]
+                        person["money"] = current_money
+                        money_outcome = person["money"]
+                        person["equipment"] = "มี"
+                        print(f"การซื้อสำเร็จ!")
+                        print(f"ยอดคงเหลือของคุณ {money_outcome} บาท")
+                        print(f"ค่าพลังของคุณในตอนนี้ คือ {power_outcome}")
+                        print(f"ยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว")
                     elif choose_weapon == 3:
-                        pass
-                        continue
+                        print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
+                        current_money -= 150000
+                        person["power"] += 10
+                        power_outcome = person["power"]
+                        person["money"] = current_money
+                        money_outcome = person["money"]
+                        person["equipment"] = "มี"
+                        print(f"การซื้อสำเร็จ!")
+                        print(f"ยอดคงเหลือของคุณ {money_outcome} บาท")
+                        print(f"ค่าพลังของคุณในตอนนี้ คือ {power_outcome}")
+                        print(f"ยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว")
                     else:
                         print("กรุณาเลือกตัวเลือกจากรายการก่อนหน้า!")
                         print(f"\n-----------")
