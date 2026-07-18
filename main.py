@@ -51,7 +51,16 @@ def main():
         elif choice == '3':
             print("\n--- ค้นหาประวัติ ---")
             # TODO:
-            # 1) รับชื่อที่ต้องการค้นหาด้วย input()
+            name = str(input("Enter name:  "))
+            
+            have_member = search_member(name)
+
+            if have_member == "None":
+                print("ไม่พบชื่อในระบบ")
+            
+            print(have_member)
+
+            # 1) รับชื่อที่ต้องการค้นหาด้วย input
             # 2) เรียก search_member(ชื่อ) แล้วเก็บผลไว้ในตัวแปร
             # 3) ถ้าผลไม่ใช่ None -> print ข้อมูล (ชื่อ, ตำแหน่ง, เงิน, อาวุธ)
             #    ถ้าเป็น None    -> print "ไม่พบชื่อในระบบ"
@@ -61,6 +70,13 @@ def main():
         elif choice == '4':
             print("\n--- สั่งเก็บลูกน้อง ---")
             # TODO:
+            name_remove = input("Enter name:  ")
+            re_mem = remove_member(name_remove)
+            
+            if re_mem == True:
+                print("สั่งเก็บเรียบร้อย")
+            else:
+                print("ไม่พบชื่อในระบบ")
             # 1) รับชื่อคนที่ต้องการลบด้วย input()
             # 2) เรียก remove_member(ชื่อ) แล้วเก็บผลไว้ (ได้ True หรือ False)
             # 3) True  -> print สั่งเก็บเรียบร้อย
@@ -71,6 +87,23 @@ def main():
         elif choice == '5':
             print("\n=== คลังอาวุธ ===")
             # TODO:
+            show_catalog()
+            weapon_password = input("Enter password:  ")
+            weapons_catalog[weapon_password]
+            
+            print("ไม่มีสินค้านี้ในระบบ")
+
+            name_member = input("Enter name:  ")
+            ch = search_member(name_member)
+            if ch == "None":
+                print("ไม่พบรายชื่อลูกน้องคนนี้")
+            wea = equip_item(name_member,weapon_password)
+            print(wea["message"])
+            if wea["status"] == True:
+                print(ch["power"])
+
+            
+
             # 1) เรียก show_catalog() แสดงรายการอาวุธ
             # 2) รับรหัสอาวุธ แล้วหาอาวุธด้วย weapons_catalog.get(รหัส)
             #    (.get(key) เหมือน dict[key] แต่ถ้าไม่มี key นี้จะได้ None แทนที่จะ error)
