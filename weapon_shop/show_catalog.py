@@ -13,4 +13,4 @@ def show_catalog():
 # ทดสอบเฉพาะไฟล์ตัวเอง: พิมพ์  python -m weapon_shop.show_catalog
 test = input()
 if __name__ == "__main__":
-    show_catalog()   # ต้องเห็นอาวุธครบ 3 ชิ้น
+    print(show_catalog())  # ต้องเห็นอาวุธครบ 3 ชิ้น

@@ -4,18 +4,28 @@
 # =====================================================
 
 def equip_item(person, weapon):
-    current_money = float(input("คุณมีเงินเท่าไหร่: "))
+    x = 1
+    current_money = person["money"]
+    weapon_owned = person["equipment"]
     while True:
-        weapon_owned = (input("\nคุณครอบครองอาวุธอยู่หรือยัง (มี/ไม่มี): "))
-        if weapon_owned == "มี":
+        if weapon_owned == "ไม่มี":
+            if current_money < 10000:
+                print("คุณมีเงินไม่พอซื้ออาวุธ")
+                continue
             if current_money >=10000 and current_money < 50000:
-                pass
+                print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
+                current_money -= 10000
+                person["money"] = current_money
+                print(f"การซื้อสำเร็จ\nยอดคงเหลืิอของคุณ คือ {person["money"]}")
             if current_money <= 150000:
-                while True:
+                while x == 1:
                     choose_weapon = (input(f"\nคุณต้องการอาวุธชิ้นไหนจากตัวเลือกต่อไปนี้\n1 สนับมือ\n2 ปืนพก 9mm\nอาวุธที่คุณเลือกคือ: "))
                     if choose_weapon == 1:
-                        pass
-                        continue
+                        print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
+                        current_money -= 10000
+                        person["money"] = current_money
+                        print(f"การซื้อสำเร็จ\nยอดคงเหลืิอของคุณ คือ {person["money"]}")
+                        x = 0
                     elif choose_weapon == 2:
                         pass
                         continue
@@ -35,12 +45,12 @@ def equip_item(person, weapon):
                         pass
                         continue
                     else:
-                        print("กรุณาเลือกตัวเลือกจากรายการก่อนหน้า")
+                        print("กรุณาเลือกตัวเลือกจากรายการก่อนหน้า!")
                         print(f"\n-----------")
-        elif weapon_owned == "ไม่มี":
+        elif weapon_owned == "มี":
             continue
         else:
-            print("กรุณาเลือกตัวเลือกจากรายการก่อนหน้า")
+            print("กรุณาเลือกตัวเลือกจากรายการก่อนหน้า!")
             print(f"\n-----------")
         
 
