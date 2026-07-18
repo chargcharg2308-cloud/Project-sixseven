@@ -6,49 +6,43 @@
 def equip_item(person, weapon):
     current_money = person["money"]
     weapon_owned = person["equipment"]
+    purchase = False
     while True:
         if weapon_owned == "ไม่มี":
             if current_money < 10000:
-                print("คุณมีเงินไม่พอซื้ออาวุธ")
-                continue
+                purchase = False
+                messenger = f"คุณมีเงินไม่พอซื้ออาวุธ"
+                return {"status": False, "message": messenger}
             if current_money >=10000 and current_money < 50000:
-                print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
                 current_money -= 10000
                 person["power"] += 2
                 power_outcome = person["power"]
                 person["money"] = current_money
                 money_outcome = person["money"]
                 person["equipment"] = "มี"
-                print(f"การซื้อสำเร็จ!")
-                print(f"ยอดคงเหลือของคุณ {money_outcome} บาท")
-                print(f"ค่าพลังของคุณในตอนนี้ คือ {power_outcome}")
-                print(f"ยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว")
+                messenger = f"คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ\nการซื้อสำเร็จ!\nยอดคงเหลือของคุณ {money_outcome} บาท\nค่าพลังของคุณในตอนนี้ คือ {power_outcome}\nยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว"
+                return {"status": True, "message": messenger}
+            if current_money <= 150000:
                 while True:
                     choose_weapon = int((input(f"\nคุณต้องการอาวุธชิ้นไหนจากตัวเลือกต่อไปนี้\n1 สนับมือ\n2 ปืนพก 9mm\nอาวุธที่คุณเลือกคือ: ")))
                     if choose_weapon == 1:
-                        print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
                         current_money -= 10000
                         person["power"] += 2
                         power_outcome = person["power"]
                         person["money"] = current_money
                         money_outcome = person["money"]
                         person["equipment"] = "มี"
-                        print(f"การซื้อสำเร็จ!")
-                        print(f"ยอดคงเหลือของคุณ {money_outcome} บาท")
-                        print(f"ค่าพลังของคุณในตอนนี้ คือ {power_outcome}")
-                        print(f"ยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว")
+                        messenger = f"คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ\nการซื้อสำเร็จ!\nยอดคงเหลือของคุณ {money_outcome} บาท\nค่าพลังของคุณในตอนนี้ คือ {power_outcome}\nยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว"
+                        return {"status": True, "message": messenger}
                     elif choose_weapon == 2:
-                        print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
                         current_money -= 50000
                         person["power"] += 5
                         power_outcome = person["power"]
                         person["money"] = current_money
                         money_outcome = person["money"]
                         person["equipment"] = "มี"
-                        print(f"การซื้อสำเร็จ!")
-                        print(f"ยอดคงเหลือของคุณ {money_outcome} บาท")
-                        print(f"ค่าพลังของคุณในตอนนี้ คือ {power_outcome}")
-                        print(f"ยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว")
+                        messenger = f"คุณมีเงินพอที่จะซื้ออาวุธ 9mm\nการซื้อสำเร็จ!\nยอดคงเหลือของคุณ {money_outcome} บาท\nค่าพลังของคุณในตอนนี้ คือ {power_outcome}\nยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว"
+                        return {"status": True, "message": messenger}
                     else:
                         print("กรุณาเลือกตัวเลือกจากรายการก่อนหน้า")
                         print(f"\n-----------")
@@ -56,46 +50,37 @@ def equip_item(person, weapon):
                 while True:
                     choose_weapon = (input(f"\nคุณต้องการอาวุธชิ้นไหนจากตัวเลือกต่อไปนี้\n1 สนับมือ\n2 ปืนพก 9mm\n3 ปืนกล Thompson\nอาวุธที่คุณเลือกคือ: "))
                     if choose_weapon == 1:
-                        print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
                         current_money -= 10000
                         person["power"] += 2
                         power_outcome = person["power"]
                         person["money"] = current_money
                         money_outcome = person["money"]
                         person["equipment"] = "มี"
-                        print(f"การซื้อสำเร็จ!")
-                        print(f"ยอดคงเหลือของคุณ {money_outcome} บาท")
-                        print(f"ค่าพลังของคุณในตอนนี้ คือ {power_outcome}")
-                        print(f"ยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว")
+                        messenger = f"คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ\nการซื้อสำเร็จ!\nยอดคงเหลือของคุณ {money_outcome} บาท\nค่าพลังของคุณในตอนนี้ คือ {power_outcome}\nยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว"
+                        return {"status": True, "message": messenger}
                     elif choose_weapon == 2:
-                        print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
                         current_money -= 50000
                         person["power"] += 5
                         power_outcome = person["power"]
                         person["money"] = current_money
                         money_outcome = person["money"]
                         person["equipment"] = "มี"
-                        print(f"การซื้อสำเร็จ!")
-                        print(f"ยอดคงเหลือของคุณ {money_outcome} บาท")
-                        print(f"ค่าพลังของคุณในตอนนี้ คือ {power_outcome}")
-                        print(f"ยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว")
+                        messenger = f"คุณมีเงินพอที่จะซื้ออาวุธ 9mm\nการซื้อสำเร็จ!\nยอดคงเหลือของคุณ {money_outcome} บาท\nค่าพลังของคุณในตอนนี้ คือ {power_outcome}\nยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว"
+                        return {"status": True, "message": messenger}
                     elif choose_weapon == 3:
-                        print("คุณมีเงินพอที่จะซื้ออาวุธ สนับมือ")
                         current_money -= 150000
                         person["power"] += 10
                         power_outcome = person["power"]
                         person["money"] = current_money
                         money_outcome = person["money"]
                         person["equipment"] = "มี"
-                        print(f"การซื้อสำเร็จ!")
-                        print(f"ยอดคงเหลือของคุณ {money_outcome} บาท")
-                        print(f"ค่าพลังของคุณในตอนนี้ คือ {power_outcome}")
-                        print(f"ยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว")
+                        messenger = f"คุณมีเงินพอที่จะซื้ออาวุธ ปืนกล Thompson\nการซื้อสำเร็จ!\nยอดคงเหลือของคุณ {money_outcome} บาท\nค่าพลังของคุณในตอนนี้ คือ {power_outcome}\nยินดีด้วยตอนนี้คุณได้ครอบครองอาวุธแล้ว"
+                        return {"status": True, "message": messenger}
                     else:
                         print("กรุณาเลือกตัวเลือกจากรายการก่อนหน้า!")
                         print(f"\n-----------")
         elif weapon_owned == "มี":
-            continue
+            return {"status": False, "message": messenger}
         else:
             print("กรุณาเลือกตัวเลือกจากรายการก่อนหน้า!")
             print(f"\n-----------")
