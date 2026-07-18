@@ -4,6 +4,49 @@
 # =====================================================
 
 def equip_item(person, weapon):
+    current_money = float(input("คุณมีเงินเท่าไหร่: "))
+    while True:
+        weapon_owned = (input("\nคุณครอบครองอาวุธอยู่หรือยัง (มี/ไม่มี): "))
+        if weapon_owned == "มี":
+            if current_money >=10000 and current_money < 50000:
+                pass
+            if current_money <= 150000:
+                while True:
+                    choose_weapon = (input(f"\nคุณต้องการอาวุธชิ้นไหนจากตัวเลือกต่อไปนี้\n1 สนับมือ\n2 ปืนพก 9mm\nอาวุธที่คุณเลือกคือ: "))
+                    if choose_weapon == 1:
+                        pass
+                        continue
+                    elif choose_weapon == 2:
+                        pass
+                        continue
+                    else:
+                        print("กรุณาเลือกตัวเลือกจากรายการก่อนหน้า")
+                        print(f"\n-----------")
+            if current_money >= 150000:
+                while True:
+                    choose_weapon = (input(f"\nคุณต้องการอาวุธชิ้นไหนจากตัวเลือกต่อไปนี้\n1 สนับมือ\n2 ปืนพก 9mm\n3 ปืนกล Thompson\nอาวุธที่คุณเลือกคือ: "))
+                    if choose_weapon == 1:
+                        pass
+                        continue
+                    elif choose_weapon == 2:
+                        pass
+                        continue
+                    elif choose_weapon == 3:
+                        pass
+                        continue
+                    else:
+                        print("กรุณาเลือกตัวเลือกจากรายการก่อนหน้า")
+                        print(f"\n-----------")
+        elif weapon_owned == "ไม่มี":
+            continue
+        else:
+            print("กรุณาเลือกตัวเลือกจากรายการก่อนหน้า")
+            print(f"\n-----------")
+        
+
+
+
+
 #   - เช็คเงิน: เงินของ person ไม่พอราคา weapon -> ซื้อไม่ได้
 #   - เช็คอาวุธ: person มีอาวุธอยู่แล้ว (equipment ไม่ใช่ "ไม่มี") -> ใส่เพิ่มไม่ได้
 #   - ผ่านทั้งคู่ -> หักเงิน, เปลี่ยน equipment เป็นชื่ออาวุธ, บวก bonus เข้า power
